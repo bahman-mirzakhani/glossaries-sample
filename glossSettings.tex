@@ -55,10 +55,8 @@
 }
 %====================================================
 % در اینجا عباراتی مثل glg، gls، glo و… پسوند فایل‌هایی است که برای xindy به کار می‌روند. 
-\newcommand*{\enFaGlossName}{واژه‌نامهٔ انگلیسی به فارسی}
-\newcommand*{\faEnGlossName}{واژه‌نامهٔ فارسی به انگلیسی}
-\newglossary[glg]{english}{gls}{glo}{\enFaGlossName}
-\newglossary[blg]{persian}{bls}{blo}{\faEnGlossName}
+\newglossary[glg]{english}{gls}{glo}{واژه‌نامهٔ انگلیسی به فارسی}
+\newglossary[blg]{persian}{bls}{blo}{واژه‌نامهٔ فارسی به انگلیسی}
 \makeglossaries
 \glsdisablehyper
 %====================================================
@@ -70,7 +68,6 @@
 	\let\oldgls\gls
 	\let\oldglspl\glspl
 \fi
-
 \makeatletter
 \renewrobustcmd*{\gls}{\@ifstar\@msgls\@mgls}
 \newcommand*{\@mgls}[1]{%
@@ -143,14 +140,10 @@
 		\let\appendix\relax
 	\fi
 	\twocolumn
-	\phantomsection
-	\addcontentsline{toc}{chapter}{\enFaGlossName}%
 	\setglossarystyle{myEntoFa}%
 %	\renewcommand{\baselinestretch}{1.2}\selectfont
 	\Oldprintglossary[type=english]%
 	\cleardoublepage
-	\phantomsection
-	\addcontentsline{toc}{chapter}{\faEnGlossName}%
 	\setglossarystyle{myFaToEn}%
 	\Oldprintglossary[type=persian]%
 	\onecolumn
@@ -159,8 +152,6 @@
 % دستور برای قراردادن فهرست اختصارات:
 \newcommand{\printabbreviation}{%
 	\cleardoublepage
-	\phantomsection
-	\addcontentsline{toc}{chapter}{\acronymname}%
 	\setglossarystyle{myAbbrlist}%
 %	\renewcommand{\baselinestretch}{1.2}\selectfont
 	\Oldprintglossary[type=acronym]%
